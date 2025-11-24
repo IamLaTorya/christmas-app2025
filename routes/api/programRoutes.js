@@ -6,12 +6,12 @@ router.get('/', (req, res)=>
     dao.findAll(res, dao.table)
 })
 
-router.get('/', (req, res)=>
+router.get('/program_info', (req, res)=>
 {
     dao.findProgramInfo(res, dao.table)
 })
 
-router.get('/', (res, table)=>
+router.get('/program_rating', (req, res)=>
 {
     dao.findProgramByRating(res, dao.table)
 })
