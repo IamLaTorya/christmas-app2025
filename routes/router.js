@@ -4,6 +4,8 @@ const express = require('express')
 const router = express.Router()
 //Determine which port to use.
 const port = process.env.port || 2025
+const axios = require('axios')
+router.use(express.static('public'))
 
 //http://localhost:2025
 router.get('/', (req, res)=>
@@ -48,6 +50,43 @@ endpoints.forEach(endpoint =>
 {
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
+
+router.get('/program', (req, res)=>
+{
+    const url = `http://localhost:2025/api/program`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/programs', 
+        {
+            title: 'program',
+            name: 'Christmas Programs',
+            data : resp.data,
+            endpoint : 'program'
+        })
+    }
+    )
+})
+
+router.get('/program/:id', (req, res)=>
+{
+    const id = req.params.id
+    const url = `http://localhost:2025/api/program/${id}`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/singleProgram', 
+            {
+                title: resp.data.title,
+                name: resp.data.title,
+                data: resp.data
+            }
+        )
+    })
+})
+
+
+
 
 //error handling
 router.use((req, res, next)=>

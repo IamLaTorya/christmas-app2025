@@ -1,0 +1,19 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+    <h2><%= title %></h2>
+    <img src="/images/christmasPrograms/<%= data.img_url %>" alt="image of <%= title %>">
+    <div>
+        <ul>
+            <li>Title: <%= data.title %></li>
+            <li>Year Released: <%= data.yr_released %></li>
+            <li>Runtime: <%= data.runtime %></li>
+            <li>Format: <%= data.format %></li>
+            <li>Program Rating: <%= data.program_rating %></li>
+            <li>Rating: <%= data.rating %></li>
+            <li>Description: <%= data.description %></li>
+        </ul>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
