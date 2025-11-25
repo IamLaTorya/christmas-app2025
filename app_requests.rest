@@ -26,3 +26,8 @@
 
 # GET http://localhost:2025/api/director/director/director/10
 
+# GET http://localhost:2025/api/actor 
+
+# GET http://localhost:2025/api/actor/actor/80
+
+# GET http://localhost:2025/api/actor/actor/actor/50
