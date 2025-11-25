@@ -25,11 +25,18 @@ const actorDao =
     ...daoCommon,
     ...require('./api/actorDao')
 }
+
+const streamingDao =
+{
+    ...daoCommon,
+    ...require('./api/streamingDao')
+}
 //3.Export programDao so other files can use it.
 module.exports = 
 {
     programDao,
     producerDao,
     directorDao,
-    actorDao
+    actorDao,
+    streamingDao
 }

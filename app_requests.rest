@@ -14,7 +14,7 @@
 
 # GET http://localhost:2025/api/producer/producer/5
 
-#  GET http://localhost:2025/api/producer/search?producer=disney&title=
+#  GET http://localhost:2025/api/producer/search?producer=disney&title=m
 
 # GET http://localhost:2025/api/producer/producer/producer/3
 
@@ -30,4 +30,12 @@
 
 # GET http://localhost:2025/api/actor/actor/80
 
-# GET http://localhost:2025/api/actor/actor/actor/50
+# GET http://localhost:2025/api/actor/search?last_name=m;
+
+# GET http://localhost:2025/api/streaming 
+
+# GET http://localhost:2025/api/streaming/streaming/4
+
+# GET http://localhost:2025/api/streaming/search?=streaming_platform=amazon&title=candy
+
+# GET http://localhost:2025/api/streaming/streaming/streaming/6

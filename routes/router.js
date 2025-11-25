@@ -19,7 +19,8 @@ router.get('/api', (req, res)=>
         'All Programs': `http://localhost:${port}/api/program`,
         'All Producers': `http://localhost:${port}/api/producer`,
         'All Directors': `http://localhost:${port}/api/director`,
-        'All Actors': `http://localhost:${port}/api/actor`
+        'All Actors': `http://localhost:${port}/api/actor`,
+        'All Streaming Platforms': `http://localhost:${port}/api/streaming`
     })
 })
 
@@ -28,6 +29,7 @@ router.use('/api/program', require('./api/programRoutes'))
 router.use('/api/producer', require('./api/producerRoutes'))
 router.use('/api/director', require('./api/directorRoutes'))
 router.use('/api/actor', require('./api/actorRoutes'))
+router.use('/api/streaming', require('./api/streamingRoutes'))
 
 
 //error handling
