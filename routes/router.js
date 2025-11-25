@@ -16,12 +16,14 @@ router.get('/api', (req, res)=>
 {
     res.json(
     {
-        'All Programs': `http://localhost:${port}/api/program`
+        'All Programs': `http://localhost:${port}/api/program`,
+        'All Producers': `http://localhost:${port}/api/producer`
     })
 })
 
 //endpoint
 router.use('/api/program', require('./api/programRoutes'))
+router.use('/api/producer', require('./api/producerRoutes'))
 
 //error handling
 router.use((req, res, next)=>

@@ -8,7 +8,7 @@ const programDao =
 
     findProgramInfo: (res, table)=>
     {
-        const sql = `SELECT program_id, title, program_rating, rating, yr_released FROM program;`
+        const sql = `SELECT program_id, title, yr_released, runtime, producer_id, format, program_rating, rating, description FROM program;`
     connect.query(
         sql,
         (error, rows)=>

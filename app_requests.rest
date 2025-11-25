@@ -9,3 +9,12 @@
 # GET http://localhost:2025/api/program/program_info
 
 # GET http://localhost:2025/api/program/program_rating
+
+# GET http://localhost:2025/api/producer 
+
+# GET http://localhost:2025/api/producer/producer/5
+
+#  GET http://localhost:2025/api/producer/search?producer=disney&title=
+
+# GET http://localhost:2025/api/producer/producer/producer/3
+
