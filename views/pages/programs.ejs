@@ -1,0 +1,22 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+    <div>
+        <% data.forEach(program =>
+        { %>
+            <figure>
+                <!-- this gets the poster link in the api -->
+                <img src= "/public/images/christmasPrograms/<%= program.posterURL %>" alt="poster for <%= program.title %>">
+                <!-- this gets the title in the api -->
+                <figcaption>
+                    <!-- this adds a link to the movie's title, making it clickable -->
+                    <a href="/<%= endpoint %>/<%= program.id %>">
+                        <%= program.title %></a>
+                    </figcaption>
+            </figure>
+        <% }) %>
+    </div>
+</main>
+
+
+<%- include('../partials/footer') %>

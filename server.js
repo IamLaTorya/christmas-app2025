@@ -32,6 +32,13 @@ server.use(cors())
 server.use(express.json())
 server.use(express.urlencoded({ extended: true }))
 
+//Hey, I'm setting ejs as my view engine!
+server.set('view engine', 'ejs')
+//Route to render EJS page
+server.get('/', (req, res)=>
+{
+    res.render('programs', { })
+})
 //9. Mount the imported router at the root path.
 server.use('/', router)//this code will cause a crash until you export your router
 
