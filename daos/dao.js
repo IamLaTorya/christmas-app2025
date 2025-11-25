@@ -13,9 +13,16 @@ const producerDao =
     ...daoCommon,
     ...require('./api/producerDao')
 }
+
+const directorDao =
+{
+    ...daoCommon,
+    ...require('./api/directorDao')
+}
 //3.Export programDao so other files can use it.
 module.exports = 
 {
     programDao,
-    producerDao
+    producerDao,
+    directorDao
 }

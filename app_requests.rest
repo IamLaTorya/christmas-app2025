@@ -18,3 +18,11 @@
 
 # GET http://localhost:2025/api/producer/producer/producer/3
 
+# GET http://localhost:2025/api/director
+
+# GET http://localhost:2025/api/director/director/2
+
+# GET http://localhost:2025/api/director/search?first_name=w
+
+# GET http://localhost:2025/api/director/director/director/10
+
