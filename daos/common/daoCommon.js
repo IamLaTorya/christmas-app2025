@@ -33,7 +33,7 @@ const daoCommon =
     countAll: (res, table)=>
     {
         connect.execute(
-            `SELECT COUTN(*) as total_count FROM ${table};`,
+            `SELECT COUNT(*) AS count FROM ${table};`,
             (error, rows)=>
             {
                 queryAction(res, error, rows, table)

@@ -26,14 +26,16 @@ router.get('/search', (req, res)=>
     dao.search(req, res, dao.table)
 })
 
+router.get('/count', (req, res)=>
+{
+    dao.countAll(res, dao.table)
+})
+
 router.get('/:id', (req, res)=>
 {
     dao.findById(res, dao.table, req.params.id)
 })
 
-router.get('/count', (req, res)=>
-{
-    dao.countAll(res, dao.table)
-})
+
 
 module.exports = router

@@ -5,7 +5,9 @@ const router = express.Router()
 //Determine which port to use.
 const port = process.env.port || 2025
 const axios = require('axios')
+const { paginationResults, buildProgramArr }= require('../helpers/pagination')
 router.use(express.static('public'))
+
 
 //http://localhost:2025
 router.get('/', (req, res)=>
@@ -54,19 +56,28 @@ endpoints.forEach(endpoint =>
 router.get('/program', (req, res)=>
 {
     const url = `http://localhost:2025/api/program`
+    /**pagination */
+    const pageData = paginationResults(req)
+
+    /**will store programs in here */
+    let programsArr = []
 
     axios.get(url).then(resp =>
     {
+        const programsArrData = buildProgramArr(resp.data, programsArr, pageData.startIdx, pageData.endIdx, pageData.page)
         res.render('pages/programs', 
         {
             title: 'program',
             name: 'Christmas Programs',
-            data : resp.data,
-            endpoint : 'program'
+            // data : resp.data,
+            endpoint : 'program',
+            data: programsArrData.arr,
+            prev: programsArrData.prev,
+            next: programsArrData.next
         })
-    }
-    )
+    })
 })
+//localhost:2025/programs/
 
 router.get('/program/:id', (req, res)=>
 {
