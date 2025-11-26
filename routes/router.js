@@ -4,6 +4,7 @@ const express = require('express')
 const router = express.Router()
 //Determine which port to use.
 const port = process.env.port || 2025
+//import the axios library
 const axios = require('axios')
 const { paginationResults, buildProgramArr }= require('../helpers/pagination')
 router.use(express.static('public'))
@@ -77,6 +78,24 @@ router.get('/program', (req, res)=>
         })
     })
 })
+
+router.get('/producer', (req, res)=>
+{
+    const url = `http://localhost:2025/api/producer`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/producers', 
+        { 
+            title: 'producers',
+            name: 'Producers of the Christmas Programs',
+            //  data : resp.data,
+            endpoint : 'producer',
+            data: resp.data
+        })
+    })  
+})
+
 //localhost:2025/programs/
 
 router.get('/program/:id', (req, res)=>
@@ -90,6 +109,23 @@ router.get('/program/:id', (req, res)=>
             {
                 title: resp.data.title,
                 name: resp.data.title,
+                data: resp.data
+            }
+        )
+    })
+})
+
+router.get('/producer/:id', (req, res)=>
+{
+    const id = req.params.id
+    const url = `http://localhost:2025/api/producer/${id}`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/singleProducer', 
+            {
+                title: resp.data.producer,
+                name: resp.data.producer,
                 data: resp.data
             }
         )

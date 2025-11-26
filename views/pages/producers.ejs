@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+<% if (data && data.length ) 
+{ %>
+    <% data.forEach(producer => 
+    { %>
+        <% if (producer && producer.producer_id) 
+    { %>
+        <h2>
+            <a href="/<%= endpoint %>/<%= producer.producer_id %>">
+            <%= producer.producer %>
+            </a>
+        </h2>
+    <% } %>
+<% }) %>
+<% } 
+else 
+{ %>
+    <p>No producers found.</p>
+<% } %>
+</main>
+
+<%- include('../partials/footer') %>
