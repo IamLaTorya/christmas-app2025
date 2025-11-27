@@ -1,0 +1,24 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+<% if (data && data.length ) 
+{ %>
+    <% data.forEach(streaming_platform => 
+    { %>
+        <% if (streaming_platform && streaming_platform.streaming_platform_id) 
+    { %>
+        <h2>
+            <a href="/<%= endpoint %>/<%= streaming_platform.streaming_platform_id %>">
+            <%= streaming_platform.streaming_platform %>
+            </a>
+        </h2>
+    <% } %>
+<% }) %>
+<% } 
+else 
+{ %>
+    <p>No streaming platforms found.</p>
+<% } %>
+</main>
+
+<%- include('../partials/footer') %>

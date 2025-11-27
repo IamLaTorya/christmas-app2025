@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+<% if (data && data.length ) 
+{ %>
+    <% data.forEach(actor => 
+    { %>
+        <% if (actor && actor.actor_id) 
+    { %>
+        <h2>
+            <a href="/<%= endpoint %>/<%= actor.actor %>">
+            <%= actor.first_name %>
+            <%= actor.last_name %>
+            </a>
+        </h2>
+    <% } %>
+<% }) %>
+<% } 
+else 
+{ %>
+    <p>No actors found.</p>
+<% } %>
+</main>
+
+<%- include('../partials/footer') %>

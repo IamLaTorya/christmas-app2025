@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+<% if (data && data.length ) 
+{ %>
+    <% data.forEach(director => 
+    { %>
+        <% if (director && director.director_id) 
+    { %>
+        <h2>
+            <a href="/<%= endpoint %>/<%= director.director %>">
+            <%= director.first_name %>
+            <%= director.last_name %>
+            </a>
+        </h2>
+    <% } %>
+<% }) %>
+<% } 
+else 
+{ %>
+    <p>No directors found.</p>
+<% } %>
+</main>
+
+<%- include('../partials/footer') %>

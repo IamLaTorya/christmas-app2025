@@ -54,6 +54,8 @@ endpoints.forEach(endpoint =>
     router.use(`/api/${endpoint}`, require(`./api/${endpoint}Routes`))
 })
 
+//main page routers
+//localhost:2025/program
 router.get('/program', (req, res)=>
 {
     const url = `http://localhost:2025/api/program`
@@ -78,7 +80,7 @@ router.get('/program', (req, res)=>
         })
     })
 })
-
+//localhost:2025/producer
 router.get('/producer', (req, res)=>
 {
     const url = `http://localhost:2025/api/producer`
@@ -95,26 +97,84 @@ router.get('/producer', (req, res)=>
         })
     })  
 })
+//localhost:2025/director
+router.get('/director', (req, res)=>
+{
+    const url = `http://localhost:2025/api/director`
 
-//localhost:2025/programs/
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/directors', 
+        { 
+            title: 'directors',
+            name: 'Directors of the Christmas Programs',
+            //  data : resp.data,
+            endpoint : 'director',
+            data: resp.data
+        })
+    })  
+})
+//localhost:2025/actor
+router.get('/actor', (req, res)=>
+{
+    const url = `http://localhost:2025/api/actor`
 
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/actors', 
+        { 
+            title: 'actors',
+            name: 'Actors of the Christmas Programs',
+            endpoint : 'actor',
+            data: resp.data
+        })
+    })  
+})
+//localhost:2025/streaming_platform
+router.get('/streaming_platform', (req, res)=>
+{
+    const url = `http://localhost:2025/api/streaming`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/streamings', 
+        { 
+            title: 'streaming platform', 
+            name: 'Streaming Platforms of the Christmas Programs',
+            //  data : resp.data,
+            endpoint : 'streaming',
+            data: resp.data
+        })
+    })  
+})
+
+//Single pages routes
+
+//localhost:2025/program/id
 router.get('/program/:id', (req, res)=>
 {
     const id = req.params.id
     const url = `http://localhost:2025/api/program/${id}`
+        const pageData = paginationResults(req)
+
+    /**will store programs in here */
+    let programsArr = []
 
     axios.get(url).then(resp =>
     {
+        const programsArrData = buildProgramArr(resp.data, programsArr, pageData.startIdx, pageData.endIdx, pageData.page)
         res.render('pages/singleProgram', 
             {
                 title: resp.data.title,
                 name: resp.data.title,
-                data: resp.data
+                data: resp.data,
+                prev: programsArrData.prev,
+                next: programsArrData.next
             }
         )
     })
 })
-
+//localhost:2025/producer/id
 router.get('/producer/:id', (req, res)=>
 {
     const id = req.params.id
@@ -131,8 +191,57 @@ router.get('/producer/:id', (req, res)=>
         )
     })
 })
+//localhost:2025/director/id
+router.get('/director/:id', (req, res)=>
+{
+    const id = req.params.id
+    const url = `http://localhost:2025/api/director/${id}`
 
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/singleDirector', 
+            {
+                title: resp.data.director,
+                name: resp.data.director,
+                data: resp.data.director
+            }
+        )
+    })
+})
+//localhost:2025/actor/id
+router.get('/actor/:id', (req, res)=>
+{
+    const id = req.params.id
+    const url = `http://localhost:2025/api/actor/${id}`
 
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/singleActor', 
+            {
+                title: resp.data.actor,
+                name: resp.data.actor,
+                data: resp.data
+            }
+        )
+    })
+})
+//localhost:2025/streaming/id
+router.get('/streaming/:id', (req, res)=>
+{
+    const id = req.params.id
+    const url = `http://localhost:2025/api/streaming/${id}`
+
+    axios.get(url).then(resp =>
+    {
+        res.render('pages/singleStreaming', 
+            {
+                title: resp.data.streaming,
+                name: resp.data.streaming,
+                data: resp.data
+            }
+        )
+    })
+})
 
 
 //error handling

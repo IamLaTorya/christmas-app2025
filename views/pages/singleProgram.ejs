@@ -1,7 +1,13 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <h2><%= title %></h2>
+<% if (prev != null) { %>
+    <a href="?page=<%= prev %>">prev</a>
+<% } %>
+<% if (next != null) { %>
+<a href="?page=<%= next %>">next</a>
+<% } %>
+        <h2><%= title %></h2>
     <img src="/images/christmasPrograms/<%= data.img_url %>" alt="image of <%= title %>">
     <div>
         <ul>
