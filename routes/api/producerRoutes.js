@@ -35,7 +35,18 @@ router.get('/:id', (req, res)=>
 {
     dao.findById(res, dao.table, req.params.id)
 })
-
+//post
+//http://localhost:2025/api/producer/create
+router.post('/create', (req, res)=>
+{
+    dao.create(req, res, dao.table)
+})
+//patch
+//http:localhost:2025/api/producer/update
+router.patch('/update/:id', (req, res)=>
+{
+    dao.update(req, res, dao.table)
+})
 
 
 module.exports = router

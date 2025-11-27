@@ -10,7 +10,7 @@ const { paginationResults, buildProgramArr }= require('../helpers/pagination')
 router.use(express.static('public'))
 
 
-//http://localhost:2025
+//HOME PAGE => http://localhost:2025
 router.get('/', (req, res)=>
 {
     //res.send("<h1>LaTorya's Christmas App</h1>")
@@ -19,6 +19,17 @@ router.get('/', (req, res)=>
         title: 'christmas-app home',
         name: "LaTorya's Christmas App"
     })
+})
+
+//Actor-Form => http://localhost:2025/actor-form
+router.get('/actor-form', (req, res)=>
+{
+    res.render('pages/actor-form',
+        {
+            title: 'actor form',
+            name: 'Actor Form'
+        }
+    )
 })
 
 //root route => http://localhost:2025/api
