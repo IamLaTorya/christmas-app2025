@@ -174,13 +174,29 @@ router.get('/program/:id', (req, res)=>
     axios.get(url).then(resp =>
     {
         const programsArrData = buildProgramArr(resp.data, programsArr, pageData.startIdx, pageData.endIdx, pageData.page)
+
+        let prev
+        let next 
+
+        if (resp.data.program_id >= 1) {
+            prev = resp.data.program_id - 1
+        } else {
+            prev = null
+        }
+
+        if  (resp.data.program_id < 25) {
+            next = resp.data.program_id + 1
+        } else {
+            next = null
+        }
+
         res.render('pages/singleProgram', 
             {
                 title: resp.data.title,
                 name: resp.data.title,
                 data: resp.data,
-                prev: programsArrData.prev,
-                next: programsArrData.next
+                prev: prev,
+                next: next
             }
         )
     })
@@ -214,7 +230,7 @@ router.get('/director/:id', (req, res)=>
             {
                 title: resp.data.director,
                 name: resp.data.director,
-                data: resp.data.director
+                data: resp.data
             }
         )
     })

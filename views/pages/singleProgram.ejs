@@ -2,10 +2,10 @@
 
 <main class="main" id="main">
 <% if (prev != null) { %>
-    <a href="?page=<%= prev %>">prev</a>
+    <a href="/program/<%= prev %>">prev</a>
 <% } %>
 <% if (next != null) { %>
-<a href="?page=<%= next %>">next</a>
+<a href="/program/<%= next %>">next</a>
 <% } %>
         <h2><%= title %></h2>
     <img src="/images/christmasPrograms/<%= data.img_url %>" alt="image of <%= title %>">
