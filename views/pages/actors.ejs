@@ -1,20 +1,20 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-<% if (data && data.length ) 
-{ %>
-    <% data.forEach(actor => 
-    { %>
-        <% if (actor && actor.actor_id) 
-    { %>
-        <h2>
-            <a href="/<%= endpoint %>/<%= actor.actor_id %>">
-            <%= actor.first_name %>
-            <%= actor.last_name %>
-            </a>
-        </h2>
-    <% } %>
-<% }) %>
+<% if (data && data.length > 0 ) { %>
+    <% data.forEach(actor => { %>
+        <% if (actor && actor.actor_id) { %>
+            <figure>
+                <img src="/images/programActors/<%= actor.img_url %>" alt="image of <%= title %>">
+                <figcaption>
+                    <a href="/<%= endpoint %>/<%= actor.actor_id %>">
+                        <%= actor.first_name %>
+                        <%= actor.last_name %>
+                    </a>
+                </figcaption>
+            </figure>
+        <% } %>
+    <% }) %>
 <% } 
 else 
 { %>

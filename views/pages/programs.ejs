@@ -1,7 +1,6 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-    <!-- <div class = "container"> -->
                     <% if (prev != null) 
                     { %>
                         <a href="?page=<%= prev %>">prev</a>
@@ -10,7 +9,6 @@
                     { %>
                         <a href="?page=<%= next %>">next</a>
                     <% } %>
-                <!-- <div class="row row-cols-1 row-cols-md g-4">                     -->
                 <% data.forEach(program =>
                 { %>
                     <figure>
@@ -24,8 +22,6 @@
                             </figcaption>
                         </figure>
                     <% }) %>
-                </div>
-    </div>
 </main>
 
 

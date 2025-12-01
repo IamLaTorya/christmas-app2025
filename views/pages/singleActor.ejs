@@ -1,9 +1,13 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
+    <h2><%= title %></h2>
+    <img src="/images/programActors/<%= data.img_url %>" alt="image of <%= title %>">
+<div>
     <ul>
-        <p>Actor Id: <%= data.actor_id %></p>
-        <p>Actor's First Name: <%= data.first_name %></p>
-        <p>Actor's Last Name: <%= data.last_name %></p>
+        <li>Actor Id: <%= data.actor_id %></li>
+        <li>Actor's First Name: <%= data.first_name %></li>
+        <li>Actor's Last Name: <%= data.last_name %></li>
     </ul>
+</div>
 <%- include('../partials/footer') %></main>
