@@ -1,0 +1,16 @@
+--Resetting auto increment
+SET @num := 0;
+UPDATE my_table SET id =@num : (@num + 1);
+ALTER TABLE my_table AUTO_INCREMENT = 1;
+
+--Example
+SET @num := 0;
+UPDATE program SET program_id = @num := (@num + 1);
+ALTER TABLE program AUTO_INCREMENT =1;
+
+--To help delete items from sql
+DELETE FROM actors
+WHERE first_name = 'Tom';
+
+DELETE FROM table_name;
+TRUNCATE TABLE table_name;
