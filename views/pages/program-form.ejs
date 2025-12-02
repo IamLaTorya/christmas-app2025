@@ -1,0 +1,78 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+        <h2>add an actor</h2>
+        <form 
+            action="http://localhost:2025/api/program/create" 
+            method="post"
+            class="form" 
+            id="program_form">
+            <label for="title" 
+            class="form-label">
+                title
+            </label>
+            <input 
+                type="text"
+                id="title"
+                name="title"/>
+            <label for="yr_released" 
+            class="form-label">
+                year released 
+            </label>
+            <input 
+                type="year"
+                id="yr_released"
+                name="yr_released"/>
+            <label for="runtime"
+            class="form-label">
+                runtime
+            </label>
+            <input 
+                type="text"
+                id="runtime"
+                name="runtime"/>
+            <label for="format"
+            class="form-label">
+            format
+            </label>
+            <input type="text"
+                    id="format"
+                    name="format"/>
+            <label for="program_rating"
+            class="form-label">
+                program rating
+            </label>
+            <input type="text"
+                    id="program_rating"
+                    name="program_rating"/>
+            <label for="rating"
+            class="form-label">
+                rating
+            </label>
+            <input type="number" 
+                    step="0.01"
+                    min="0"
+                    id="rating"
+                    name="rating"/>
+            <label for="img_url"
+            class="form-label">
+                img_url
+            </label>
+            <input type="text"
+                    id="img_url"
+                    name="img_url"/>
+            <label for="description"
+            class="form-label">
+                description
+            </label>
+            <input type="text"
+                    id="description"
+                    name="description"/>
+        <button 
+            type="submit"
+            role="button"
+        >Add Program</button>
+    </form>
+</main>
+
+<%- include('../partials/footer') %>
