@@ -77,7 +77,7 @@ const actorDao =
     findProgramsByActorId: (res, table, id)=>
     {
         const programs = []
-        const sql = `SELECT program_id, title, yr_released, runtime, producer_id, format, program_rating, rating, actor_id, description FROM program JOIN program_to_actor USING (program_id) JOIN actor a USING (actor_id) WHERE actor_id = ${id};`
+        const sql = `SELECT actor_id, program_id, title, yr_released, format, program_rating, description FROM program JOIN program_to_actor USING (program_id) JOIN actor a USING (actor_id) WHERE actor_id = ${id};`
         connect.execute(
             sql,
             (error, rows)=> 

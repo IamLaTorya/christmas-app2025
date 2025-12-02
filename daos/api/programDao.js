@@ -52,7 +52,7 @@ const programDao =
     findProgramByRating: (res, table)=>
     {
         
-        const sql = `SELECT title, program_rating, rating FROM program ORDER BY rating DESC;`
+        const sql = `SELECT program_id, title, program_rating, rating FROM program ORDER BY rating DESC;`
 
         connect.execute(
             sql,

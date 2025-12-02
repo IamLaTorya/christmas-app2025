@@ -6,12 +6,12 @@ router.get('/', (req, res)=>
     dao.findAll(res, dao.table)
 })
 
-router.get('/streaming/:id', (req, res)=>
+router.get('/find_streaming/:id', (req, res)=>
 {
     dao.findProgramsByStreamingPlatform(res, dao.table, req.params.id)
 })
 
-router.get('/streaming/streaming/:id', (req, res)=>
+router.get('/streaming_program/:id', (req, res)=>
 {
     dao.findProgramsByStreamingPlatformId(res, dao.table, req.params.id)
 })

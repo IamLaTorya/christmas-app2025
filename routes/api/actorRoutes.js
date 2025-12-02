@@ -5,13 +5,13 @@ router.get('/', (req, res)=>
 {
     dao.findAll(res, dao.table)
 })
-//http://localhost:2025/api/actor/actor/:id
-router.get('/actor/:id', (req, res)=>
+//http://localhost:2025/api/actor/find_actor/:id
+router.get('/find_actor/:id', (req, res)=>
 {
     dao.findProgramsByActor(res, dao.table, req.params.id)
 })
-//http://localhost:2025/api/actor/actor/actor/:id
-router.get('/actor/actor/:id', (req, res)=>
+//http://localhost:2025/api/actor_program/:id
+router.get('/actor_program/:id', (req, res)=>
 {
     dao.findProgramsByActorId(res, dao.table, req.params.id)
 })

@@ -6,12 +6,12 @@ router.get('/', (req, res)=>
     dao.findAll(res, dao.table)
 })
 
-router.get('/director/:id', (req, res)=>
+router.get('/find_director/:id', (req, res)=>
 {
     dao.findProgramsByDirector(res, dao.table, req.params.id)
 })
 
-router.get('/director/director/:id', (req, res)=>
+router.get('/director_program/:id', (req, res)=>
 {
     dao.findProgramsByDirectorId(res, dao.table, req.params.id)
 })

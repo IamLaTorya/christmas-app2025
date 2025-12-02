@@ -77,7 +77,7 @@ const directorDao =
     findProgramsByDirectorId: (res, table, id)=>
     {
         const programs = []
-        const sql = `SELECT program_id, title, yr_released, runtime, producer_id, format, program_rating, rating, director_id, description FROM program JOIN program_to_director USING (program_id) JOIN director d USING (director_id) WHERE director_id = ${id};`
+        const sql = `SELECT director_id, program_id, producer_id, title, yr_released, format, program_rating FROM program JOIN program_to_director USING (program_id) JOIN director d USING (director_id) WHERE director_id = ${id};`
         connect.execute(
             sql,
             (error, rows)=> 

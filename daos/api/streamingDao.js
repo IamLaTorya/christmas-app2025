@@ -52,7 +52,8 @@ const streamingDao =
     },
     findProgramsByStreamingPlatformId: (res, table, id)=>
     {
-        const sql = `SELECT program_id, title, yr_released, runtime, producer_id, format, program_rating, rating, streaming_platform_id, streaming_platform, description FROM program JOIN program_to_streaming USING (program_id) JOIN streaming_platform s USING (streaming_platform_id) WHERE streaming_platform_id = ${id};`
+        const sql = `SELECT  program_id, title, yr_released, 
+        streaming_platform_id, streaming_platform, runtime, format, program_rating, description FROM program JOIN program_to_streaming USING (program_id) JOIN streaming_platform s USING (streaming_platform_id) WHERE streaming_platform_id = ${id};`
         connect.query(
             sql,
             (error, rows)=>

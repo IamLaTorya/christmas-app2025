@@ -6,12 +6,12 @@ router.get('/', (req, res)=>
     dao.findAll(res, dao.table)
 })
 
-router.get('/producer/:id', (req, res)=>
+router.get('/find_producer/:id', (req, res)=>
 {
     dao.findProgramsByProducer(res, dao.table, req.params.id)
 })
 
-router.get('/producer/producer/:id', (req, res)=>
+router.get('/producer_program/:id', (req, res)=>
 {
     dao.findProgramByProducerId(res, dao.table, req.params.id)
 })

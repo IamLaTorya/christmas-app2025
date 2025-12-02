@@ -8,7 +8,7 @@ const producerDao =
     //find programs by producer
     findProgramsByProducer: (res, table, id)=>
     {
-        const sql = `SELECT program.*, p.producer FROM program JOIN producer p USING (producer_id) WHERE p.producer_id = ${id};`
+        const sql = `SELECT p.producer, program.* FROM program JOIN producer p USING (producer_id) WHERE p.producer_id = ${id};`
     connect.query(
         sql,
         (error, rows)=>
@@ -53,7 +53,7 @@ const producerDao =
     },
     findProgramByProducerId: (res, table, id)=>
     {
-        const sql = `SELECT program_id, title, yr_released, format, producer_id, producer FROM program JOIN producer USING (producer_id) WHERE producer_id = ${id};`
+        const sql = `SELECT producer_id, producer, program_id, title, yr_released, format, program_rating FROM program JOIN producer USING (producer_id) WHERE producer_id = ${id};`
         connect.query(
             sql,
             (error, rows)=>
