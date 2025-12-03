@@ -43,6 +43,17 @@ router.get('/program-form', (req, res)=>
     )
 })
 
+//Producer-Form => http://localhost:2025/producer-form
+router.get('/producer-form', (req, res)=>
+{
+    res.render('pages/producer-form',
+        {
+            title: 'producer form',
+            name: 'Producer Form'
+        }
+    )
+})
+
 //root route => http://localhost:2025/api
 router.get('/api', (req, res)=>
 {

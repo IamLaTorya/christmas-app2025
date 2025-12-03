@@ -1,7 +1,7 @@
 <%- include('../partials/header') %>
 
 <main class="main" id="main">
-        <h2>add an actor</h2>
+        <h2>add a program</h2>
         <form 
             action="http://localhost:2025/api/program/create" 
             method="post"
@@ -31,6 +31,13 @@
                 type="text"
                 id="runtime"
                 name="runtime"/>
+            <label for="producer_id"
+            class="form-label">
+                producer id
+            </label>
+            <input type="number"
+                    id="producer_id"
+                    name="producer_id"/>
             <label for="format"
             class="form-label">
             format

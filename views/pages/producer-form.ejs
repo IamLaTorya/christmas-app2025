@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<main class="main" id="main">
+        <h2>add a producer</h2>
+        <form 
+            action="http://localhost:2025/api/producer/create" 
+            method="post"
+            class="form" 
+            id="producer_form">
+            <label for="producer" 
+            class="form-label">
+                producer
+            </label>
+            <input 
+                type="text"
+                id="producer"
+                name="producer"/>
+        <button 
+            type="submit"
+            role="button"
+        >Add Producer</button>
+    </form>
+</main>
+
+<%- include('../partials/footer') %>
