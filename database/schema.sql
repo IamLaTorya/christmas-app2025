@@ -67,6 +67,9 @@ CREATE TABLE program(
 ALTER TABLE program
 MODIFY COLUMN img_url VARCHAR(100);
 
+ALTER TABLE program
+MODIFY COLUMN program_rating ENUM('G', 'PG', 'TV-G', 'TV-PG', 'PG-13', 'R', 'NC-17', 'NR');
+
 -- Pivot table
 CREATE TABLE program_to_streaming(
     program_id MEDIUMINT UNSIGNED NOT NULL,
