@@ -1,7 +1,7 @@
 //1. Import DAO
 const daoCommon = require('./common/daoCommon')
-//2.Create a new object called programDao using the spread operator to copy everything from daoCommon loading it the api/programDao.
 
+//2.Create a new object called programDao using the spread operator to copy everything from daoCommon loading it the api/programDao.
 const programDao =
 {
     ...daoCommon,

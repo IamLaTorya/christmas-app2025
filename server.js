@@ -27,15 +27,18 @@ server.use(helmet.contentSecurityPolicy(
     }
 }))
 
-//7-8.Enable CORS middleware, add body-parsing middleware so JSON and URL-encoded form bodies are parsed and avaliable.
+//7-8.
+// Allow requests from different domains (Cross-Origin Resource Sharing). This is useful with running different servers/ports.
 server.use(cors())
+//tell express to automatically parse JSON data in incoming requests.
 server.use(express.json())
+//tell Express to parse data from HTML forms (URL-encoded data). extended: true means it can handle more complex objects, not just simple strings.
 server.use(express.urlencoded({ extended: true }))
 
 //Hey, I'm setting ejs as my view engine!
 server.set('view engine', 'ejs')
 
-//9. Mount the imported router at the root path.
+//9. Mount the imported router at the root path, making all routes defined in this router file to be avaliable starting at /.
 server.use('/', router)//this code will cause a crash until you export your router
 
 //10.Start the HTTP server and listen to the port.
