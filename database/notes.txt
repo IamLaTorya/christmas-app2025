@@ -14,3 +14,23 @@ WHERE first_name = 'Tom';
 
 DELETE FROM table_name;
 TRUNCATE TABLE table_name;
+
+AUTO_INCREMENT = automatically generates a unique numeric value wherever it is placed.
+Example = program_id, is automatically generated, so you do not have to manually number
+each program. When a new program is added, it will automatically give the new program
+an id. 
+
+enum = a string data type that allows you to define a column with a predefined set of values.
+For example, if you define a column as ENUM('small', 'medium', 'large'), only these three values can be stored. 
+Any attempt to insert a value outside this list will result in an error. 
+
+varchar = A variable-length string that can store any text up to the defined maximum length.
+Example, VARCHAR(20)... It allows complete flexibility—any string can be stored as long as it meets the length constraint.
+
+blob = (Binary Large Object) is a data type in MySQL that allows you to store large binary data such as images, audio, video, and other multimedia files. 
+
+In this project, I used varchar instead of blob because I stored as a file path/url. When I changed it from BLOB to varchar, all of my images showed up on my display.
+
+Storage      Size	     Signed Range	       Unsigned Range
+SMALLINT	2 bytes	 −32,768 to 32,767	        0 to 65,535
+MEDIUMINT	3 bytes	 −8,388,608 to 8,388,607	0 to 16,777,215
