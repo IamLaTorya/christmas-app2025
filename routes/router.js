@@ -237,7 +237,7 @@ router.get('/program/:id', (req, res)=>
             prev = null
         }
         //if the current program_id is less than 25
-        if  (resp.data.program_id < 25) 
+        if  (resp.data.program_id < 27) 
         {
             //then set next to one or more than the current id
             next = resp.data.program_id + 1
